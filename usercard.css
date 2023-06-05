@@ -7,11 +7,15 @@
     transition: 0.2s;
 }
 
+.cardimage{
+    width: 100%;
+
+}
+
 .cardbody{
     padding: 2px 16px;
 }
 
-.cardimage{
-    width: 100%;
-
+.cardbodyDesignation{
+    font-style: italic;
 }
