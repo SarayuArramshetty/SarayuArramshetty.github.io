@@ -9,10 +9,13 @@ let displayobject;
 let getRandomUser = function(){
     fetch("https://randomuser.me/api")
     .then(response => response.json())
-    .then(data=>console.log(data))
-    document.getElementById("kalam").src = displayobject.imageurl;
-    document.getElementById("abdulKalam").innerHTML = displayobject.name;
-    document.getElementById("descrip").innerHTML = displayobject.description;
-
-
+    .then(data=>{
+        displayobject.name = data.results[0].name.first + " " + data.results[0].name.last
+        displayobject.imageurl = data.results[0].picture.large
+        displayobject.description = data.results[0].gender
+        document.getElementById("kalam").src = displayobject.imageurl;
+        document.getElementById("abdulKalam").innerHTML = displayobject.name;
+        document.getElementById("descrip").innerHTML = displayobject.description;
+    })
+    
 }
