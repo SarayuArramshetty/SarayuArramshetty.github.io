@@ -4,23 +4,12 @@ let Kalamoldinfo = {
     description: "Aerospace Scientist"
 }
 
-let KalamMissileManinfo={
-    imageurl: "https://i.pinimg.com/736x/4d/b1/41/4db1413cd7b147df98bc2642c93ee278.jpg",
-    name: "Dr A P J Abdul Kalam",
-    description: "Missile Man of India"
-}
 
-let isKalamoldinfo = true;
 let displayobject;
-let flipdata = function(){
-    if(isKalamoldinfo==true){
-        displayobject = KalamMissileManinfo;
-        isKalamoldinfo = false;
-    }
-    else{
-        displayobject = Kalamoldinfo;
-        isKalamoldinfo = true;
-    }
+let getRandomUser = function(){
+    fetch("https://randomuser.me/api")
+    .then(response => response.json())
+    .then(data=>console.log(data))
     document.getElementById("kalam").src = displayobject.imageurl;
     document.getElementById("abdulKalam").innerHTML = displayobject.name;
     document.getElementById("descrip").innerHTML = displayobject.description;
